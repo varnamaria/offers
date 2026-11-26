@@ -99,7 +99,7 @@
     <p><b>Цель</b> — запустить сайт быстро, чтобы все, кто готовится к сезону уже этой зимой, находили вас в Яндексе и на Яндекс Картах.</p>
     <div class="presets" role="group" aria-label="Готовые варианты">
       <button type="button" data-preset="min">Базовый</button>
-      <button type="button" data-preset="rec">Рекомендую ⭐</button>
+      <button type="button" data-preset="rec">Рекомендую</button>
       <button type="button" data-preset="max">Максимум</button>
     </div>
     <p class="note">Индивидуальный подход — в любом варианте. Варианты различаются только объёмом работы и тем, насколько детально прорабатываем внешний вид, интерактивы и функционал.</p>
@@ -285,8 +285,8 @@ async function copyMsg(){
 box('bCopy').addEventListener('click', copyMsg);
 // MAX не принимает готовый текст в ссылке: копируем текст и открываем чат с Марией
 box('bMax').addEventListener('click', copyMsg);
-// по умолчанию — рекомендуемый
-for (const it of all) if (!it.locked) box(it.id).checked = PRESETS.rec.includes(it.id);
+// по умолчанию — базовый
+for (const it of all) if (!it.locked) box(it.id).checked = PRESETS.min.includes(it.id);
 recalc();
 </script>
 
