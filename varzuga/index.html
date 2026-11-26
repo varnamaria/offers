@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<style>[hidden]{display:none!important}img{max-width:100%}</style>
+</head>
+<body>
+<title>Сайт VARZUGA SALMON LODGE</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<!-- Черновик конструктора «Варианты и цены» для VARZUGA SALMON LODGE (critique-2.md, critique-3.md, 2026-11-26).
+     Основа — site-starter process/price-offer.html. Цена пункта = часы Марии × 1,2 × 2 500 ₽, вверх до 500;
+     интерактивы, СМС, английский — по ценам из документа клиенту. Стиль — фирменный стиль Марии.
+     Решения Марии 26.11: размещение входит в Основу; Основа + Структура + 4 страницы = 45 000 (как «Базовый» в доке); Вебмастер и Метрика — 1 500;
+     пресеты Базовый / Рекомендую / Максимум; бонусы бесплатно — превью ссылки, «Позвать друзей», памятка рыбаку, QR, памятка «Ваш сайт», отчёт через месяц. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Макет: слева группы галочек, справа «чек» с итогом; на телефоне — в одну колонку */
+  :root{
+    --accent:#635BFF; --on-accent:#FFFFFF; --ink:#0A2540; --muted:#425466; --line:#E3E8EE;
+    --bg:#FFFFFF; --surface:#FFFFFF; --soft:#F6F8FB; --rec-bg:#EEEDFF; --rec-ink:#4F47E0;
+    --panel:#0A2540; --panel-ink:#FFFFFF; --panel-muted:#B7C4D4; --panel-line:#23415F;
+    --grad:linear-gradient(135deg,#B4BCFF 0%,#635BFF 40%,#3D7BFF 70%,#22C7FF 100%);
+    --r:10px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      color-scheme:dark;
+      --accent:#8D87FF; --on-accent:#0B1424; --ink:#EAF0F7; --muted:#A9B7C7; --line:#24344A;
+      --bg:#0B1424; --surface:#0F1B2E; --soft:#16253B; --rec-bg:#24234A; --rec-ink:#B9B5FF;
+      --panel:#16253B; --panel-ink:#FFFFFF; --panel-muted:#A9B7C7; --panel-line:#2C4060;
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --accent:#8D87FF; --on-accent:#0B1424; --ink:#EAF0F7; --muted:#A9B7C7; --line:#24344A;
+    --bg:#0B1424; --surface:#0F1B2E; --soft:#16253B; --rec-bg:#24234A; --rec-ink:#B9B5FF;
+    --panel:#16253B; --panel-ink:#FFFFFF; --panel-muted:#A9B7C7; --panel-line:#2C4060;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--muted);font:16px/1.55 Inter,system-ui,-apple-system,sans-serif}
+  h1,h2,h3{font-family:Manrope,system-ui,sans-serif;color:var(--ink);margin:0;text-wrap:balance}
+  .wrap{max-width:1080px;margin:0 auto;padding-block:32px 96px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  header{padding:8px 0 24px}
+  header h1{font-size:clamp(26px,4vw,38px);line-height:1.15;font-weight:800}
+  header h1 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  header p{max-width:680px;margin:12px 0 0}
+  .note{font-size:14px;color:var(--muted)}
+  .presets{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 8px}
+  .presets button{font:600 15px Manrope,system-ui,sans-serif;padding:10px 16px;border-radius:var(--r);border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+  .presets button.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+  .presets button:focus-visible,label.item input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .grid{display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start;margin-top:16px}
+  @media (max-width:860px){.grid{grid-template-columns:1fr}}
+  section.group{border:1px solid var(--line);border-radius:var(--r);padding:16px 16px 8px;margin-bottom:16px;background:var(--surface)}
+  section.group h2{font-size:18px;margin-bottom:4px}
+  section.group > p{margin:0 0 8px;font-size:14px}
+  label.item{display:grid;grid-template-columns:24px 1fr auto;gap:8px 12px;padding:12px 0;border-top:1px solid var(--line);cursor:pointer}
+  label.item:first-of-type{border-top:0}
+  label.item input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent)}
+  .t{color:var(--ink);font-weight:600}
+  .d{display:block;font-size:14px;color:var(--muted);font-weight:400;margin-top:2px}
+  .p{font-family:Manrope,system-ui,sans-serif;font-weight:700;color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;background:var(--soft);color:var(--muted);margin-left:6px;font-weight:500}
+  .tag.rec{background:var(--rec-bg);color:var(--rec-ink)}
+  label.item.locked{cursor:default}
+  aside{position:sticky;top:calc(16px + env(safe-area-inset-top,0px));border-radius:var(--r);background:var(--panel);color:var(--panel-muted);padding:20px}
+  aside h3{color:var(--panel-ink);font-size:16px;margin-bottom:12px}
+  .row{display:flex;justify-content:space-between;gap:12px;padding:6px 0;font-size:15px}
+  .row b{color:var(--panel-ink);font-weight:600;font-variant-numeric:tabular-nums}
+  .total{border-top:1px solid var(--panel-line);margin-top:8px;padding-top:12px}
+  .total .sum{font:800 30px/1.1 Manrope,system-ui,sans-serif;color:var(--panel-ink);font-variant-numeric:tabular-nums}
+  .bar{height:4px;border-radius:4px;background:var(--grad);margin:16px 0 12px}
+  aside .note{color:var(--panel-muted);font-size:13px;margin:8px 0 0}
+  .info{border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-top:8px;background:var(--surface)}
+  .info h2{font-size:18px;margin-bottom:8px}
+  .info ul,.info ol{margin:0;padding-left:20px}
+  .info li{margin:4px 0}
+  .info.bonus{background:var(--rec-bg);border:2px solid var(--accent)}
+  .info.bonus h2{color:var(--rec-ink)}
+  .info.bonus .tag{vertical-align:middle;background:var(--surface)}
+  .bonus-link{display:inline-block;margin-top:8px;font:600 14px Manrope,system-ui,sans-serif;color:var(--panel-ink);text-decoration:none;border-bottom:1px dashed var(--panel-muted)}
+  .send{border-top:1px solid var(--panel-line);margin-top:12px;padding-top:12px}
+  .send h3{margin-bottom:8px}
+  .send textarea{width:100%;font:13px/1.45 Inter,system-ui,sans-serif;color:var(--panel-ink);background:rgba(255,255,255,.06);border:1px solid var(--panel-line);border-radius:8px;padding:8px;resize:vertical}
+  .send-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .send-btns a,.send-btns button{font:600 14px Manrope,system-ui,sans-serif;padding:8px 12px;border-radius:8px;border:1px solid var(--panel-line);background:transparent;color:var(--panel-ink);text-decoration:none;cursor:pointer}
+  .send-btns a.main{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+  .send-btns a:focus-visible,.send-btns button:focus-visible{outline:2px solid var(--panel-ink);outline-offset:2px}
+  @media (max-width:860px){aside{position:static}}
+</style>
+<div class="wrap">
+  <header>
+    <h1>Сайт для <span>VARZUGA SALMON LODGE</span>: соберите свой вариант</h1>
+    <p>Отметьте нужное — итог посчитается сразу. Цена пункта — это мои часы: созвоны, тексты, проверка и правки. Черновик главной нейросеть делает за вечер, а моя работа — превратить его в сайт про ваше место и ваших гостей.</p>
+    <p><b>Цель</b> — запустить сайт быстро, чтобы все, кто готовится к сезону уже этой зимой, находили вас в Яндексе и на Яндекс Картах.</p>
+    <div class="presets" role="group" aria-label="Готовые варианты">
+      <button type="button" data-preset="min">Базовый</button>
+      <button type="button" data-preset="rec">Рекомендую ⭐</button>
+      <button type="button" data-preset="max">Максимум</button>
+    </div>
+    <p class="note">Индивидуальный подход — в любом варианте. Варианты различаются только объёмом работы и тем, насколько детально прорабатываем внешний вид, интерактивы и функционал.</p>
+    <p class="note"><i>Цены примерные, точные — после ответов на оставшиеся вопросы и фото.</i></p>
+  </header>
+
+  <div class="grid">
+    <main id="groups"></main>
+    <aside aria-live="polite">
+      <h3>Ваш вариант</h3>
+      <div class="row"><span>Сайт</span><b id="sSite">0 ₽</b></div>
+      <div class="row"><span>Подключение</span><b id="sHook">0 ₽</b></div>
+      <div class="row"><span>Связь и языки</span><b id="sExtra">0 ₽</b></div>
+      <div class="total">
+        <div class="row"><span>Итого</span></div>
+        <div class="sum" id="sTotal">0 ₽</div>
+        <a class="bonus-link" href="#bonus">🎁 + 6 бонусов бесплатно</a>
+      </div>
+      <div class="bar"></div>
+      <div class="row"><span>Срок</span><b id="sTerm">—</b></div>
+      <div class="row"><span>Моих часов</span><b id="sHours">—</b></div>
+      <p class="note">* Целимся в 2 недели: работаю по вечерам и выходным. Срок зависит от того, как быстро вы согласуете тексты и дизайн и сколько новых идей появится по ходу.</p>
+      <p class="note">Ваши расходы отдельно: хостинг и домен ≈ 2 000 ₽ за первый год, оформляются на вас.</p>
+      <div class="send">
+        <h3>Отправить выбор</h3>
+        <textarea id="sMsg" rows="6" readonly aria-label="Текст вашего выбора"></textarea>
+        <div class="send-btns">
+          <a id="bMax" class="main" href="https://max.ru/u/f9LHodD0cOKRGdf1-CvqjDEFxSEYeeHjbygvxcZ6QDYyN6K0OE-y3d35r8k" target="_blank" rel="noopener">MAX</a>
+          <button type="button" id="bCopy">Скопировать</button>
+        </div>
+        <p class="note">Нажмите «MAX»: текст скопируется и откроется чат со мной — вставьте его и отправьте.</p>
+        <p class="note" id="sCopied" hidden>Текст скопирован.</p>
+      </div>
+    </aside>
+  </div>
+
+  <div class="info">
+    <h2>Входит в любой вариант</h2>
+    <ul>
+      <li>Индивидуальный подход: сайт про ваше место и ваших гостей</li>
+      <li>Тексты по вашим ответам, отбор и подготовка ваших фото и отзывов</li>
+      <li>Версия для телефона, кнопки WhatsApp, Telegram, MAX и звонка</li>
+      <li>Форма заявки: гость отправляет вам готовое сообщение</li>
+      <li>Политика обработки данных, согласие, страница 404</li>
+      <li>Базовая настройка страниц под поиск Яндекса</li>
+      <li>Размещение в интернете: хостинг и домен на ваше имя, защищённый адрес https, загрузка сайта</li>
+      <li>Все презентационные блоки на главной: кто мы и где, почему выбрать нас, почему Варзуга, фото, размещение, как добраться, округа и красоты (река, северное сияние, другие пейзажи), частые вопросы и что есть вокруг</li>
+    </ul>
+  </div>
+  <div class="info bonus" id="bonus">
+    <h2>🎁 Бонусом, бесплатно <span class="tag rec">в любом варианте</span></h2>
+    <ul>
+      <li>Превью ссылки: когда сайт пересылают в мессенджере, видно картинку и название</li>
+      <li>Кнопка «Позвать друзей»: готовое сообщение со ссылкой — удобно собрать компанию</li>
+      <li>Памятка «Что взять на рыбалку на Варзугу»: гости сохраняют её и возвращаются на сайт</li>
+      <li>QR-код на сайт для визиток и таблички в доме</li>
+      <li>Памятка «Ваш сайт»: где он лежит, когда продлевать хостинг и домен, к кому обращаться</li>
+      <li>Отчёт через месяц после запуска: сколько людей пришло, откуда и сколько оставили заявку (с Яндекс Метрикой)</li>
+    </ul>
+  </div>
+  <div class="info">
+    <h2>Правки</h2>
+    <ul>
+      <li>2 круга правок текста и 2 круга правок дизайна, правки одним списком на круг</li>
+      <li>Сначала утверждаем текст, потом дизайн</li>
+      <li>Дополнительный круг — 2 500 ₽. Новый блок или страница — по этому прайсу</li>
+    </ul>
+  </div>
+  <div class="info">
+    <h2>После запуска</h2>
+    <ul>
+      <li>Сезонное обновление цен, дат и фото (до 2 ч) — 5 000 ₽. Если правок много, сделаю таблицу, из которой сайт сам берёт цены и даты, — цена по запросу</li>
+      <li>Мелкие правки — 2 500 ₽ за круг, одним списком</li>
+    </ul>
+  </div>
+  <div class="info">
+    <h2>Что дальше</h2>
+    <ol>
+      <li>Отметьте нужное и нажмите «MAX» в блоке «Ваш вариант» — список придёт мне готовым сообщением</li>
+      <li>Ответьте на вопросы и пришлите фото по списку в документе <a href="https://docs.google.com/document/d/1v9k5Wab8EslWN7UywZWfArP-aX95s4qr0WsMdkp2d64/edit?tab=t.0" target="_blank" rel="noopener">«Вопросы»</a></li>
+    </ol>
+  </div>
+</div>
+
+<script>
+// h — часы Марии без резерва; price — цена с резервом 20 %, округлена вверх до 500 (кроме fixed — цена из документа клиенту).
+const RATE = 2500, RES = 1.2;
+const roundUp = x => Math.ceil(x / 500) * 500;
+const G = [
+  {id:'site', title:'Основа', hint:'', kind:'site', items:[
+    {id:'base', t:'Главная и всё обязательное', d:'Созвон и анкета (уже сделали), разбор конкурентов, тексты, базовый дизайн, версия для телефона, форма заявки, юридические страницы, размещение в интернете. Полный список — ниже, в блоке «Входит в любой вариант».', fixed:35500, h:11.7, locked:true},
+    {id:'struct', t:'Структура и шаблон внутренних страниц', d:'Нужна, когда страниц две и больше: единая шапка, шрифты, цвета и подача фото на всех страницах', fixed:5500, h:2.6, auto:true},
+  ]},
+  {id:'pages', title:'Страницы', hint:'В «Базовом» — 4 страницы: рыбалка, жильё и питание, цены, фото. Остальные — по желанию: каждая отвечает на свой запрос в Яндексе.', kind:'site', items:[
+    {id:'p_fish', t:'Рыбалка', d:'Сёмга и горбуша по месяцам, лицензии, лодка, гид', h:0.5, page:true},
+    {id:'p_stay', t:'Жильё и питание', d:'Комнаты с фото, домашняя кухня, заморозка улова', h:0.5, page:true},
+    {id:'p_price', t:'Цены и бронирование', d:'Что входит в цену, предоплата и отмена, погода по месяцам', h:0.5, page:true},
+    {id:'p_photo', t:'Фото Варзуги', d:'Река, село, дом, рыбалка, северное сияние', h:0.5, page:true},
+    {id:'p_road', t:'Как добраться', d:'Из Мурманска и Кандалакши, трансфер, переправа на лодке, пропуск', h:0.5, page:true, rec:true},
+    {id:'p_aurora', t:'Северное сияние — отдельная страница', d:'Блок на главной уже входит. Отдельная страница пригодится, если будете принимать гостей в сезон сияний', h:0.5, page:true},
+  ]},
+  {id:'look', title:'Дизайн, фото и карта', hint:'Северный стиль и фото в одном ключе.', kind:'site', items:[
+    {id:'research', t:'Северный дизайн: референсы и анимации', d:'Разбор северных туристических сайтов и подбор референсов под ваше место. Плюс анимации: сцены при прокрутке, плавные переходы между блоками', fixed:4000, h:2},
+    {id:'photo', t:'Обработка фото для галереи', d:'Фото в страницах сайта обработаю в любом случае. Этот пункт — для галереи: единый стиль для всех ваших фото и пейзажей, лёгкие форматы для быстрой загрузки, подписи авторов', fixed:3000, h:1.2, rec:true},
+    {id:'stock', t:'Фото из открытых библиотек', d:'Больше выбора для оформления: бесплатные пейзажи Варзуги из открытых библиотек с подписью автора, в общем стиле с вашими фото', fixed:5000, h:2},
+    {id:'map', t:'Яндекс Карта', d:'Карта прямо на сайте: дом, причал переправы, дорога из Мурманска. Загружается по клику и не тормозит сайт. Простая ссылка на карту входит в основу', fixed:1000, h:0.5, rec:true},
+    {id:'quiz', t:'Квиз «Соберите поездку»', d:'Цены и так есть на сайте, а квиз считает конкретную поездку: гость отвечает, сколько людей и дней, нужны ли лодка и гид, и сразу видит сумму. Вам приходит готовая заявка с расчётом', fixed:2500, h:1.5},
+    {id:'cal', t:'Календарь сезона — интерактив', d:'Кликабельный календарь: что ловится и что происходит в каждом месяце. Без него сезоны описаны текстом на страницах «Рыбалка» и «Цены»', fixed:2500, h:1},
+  ]},
+  {id:'hook', title:'Подключение', hint:'Чтобы сайт находили в Яндексе и было видно, кто пришёл.', kind:'hook', items:[
+    {id:'ywm', t:'Яндекс Вебмастер и Метрика', d:'Индексация в Яндексе и статистика: сколько людей пришло и сколько оставили заявку', fixed:1500, h:1.6, rec:true},
+    {id:'card', t:'Карточка на Яндекс Картах', d:'Название, описание, категории, часы работы, фото и ссылка на сайт. Карточку создаёте вы или даёте мне доступ, владельца подтверждаете вы. Заполню за 1 000 ₽ или бесплатно проверю, если заполните сами', fixed:0, priceText:'0 – 1 000 ₽', h:0.5, rec:true},
+    {id:'seo', t:'Настройка под запросы', d:'SEO по карте запросов сверх базовой настройки. Плюс файл llms.txt — короткая справка о вас для нейросетей (Алиса, ChatGPT), чтобы они верно называли ваши цены и даты, когда люди спрашивают, куда поехать на рыбалку', h:1, rec:true},
+    {id:'reviews', t:'Отзывы', d:'QR-код для таблички в доме — ведёт на отзыв в Яндекс Картах, и шаблон сообщения гостям с просьбой об отзыве: отправляете вы. Автоматическая рассылка — отдельно, на будущее', fixed:0, priceText:'0 – по запросу', h:0.6, rec:true},
+  ]},
+  {id:'extra', title:'Связь и языки', hint:'По желанию.', kind:'extra', items:[
+    {id:'sms', t:'СМС о заявке', d:'Заявка и так приходит в мессенджеры и на почту. Если со связью бывают перебои, добавим СМС. Для этого нужен сторонний сервис SMS.ru с договором, а перед запуском протестируем, как он работает. Подключить сервис — половина дела: вы регистрируете его на свой номер, я настраиваю отправку с сайта. Вторая половина — чтобы всё работало надёжно: защита от ботов и спама, чтобы они не израсходовали 5 бесплатных СМС в день, текст заявки в одну СМС и проверка доставки вместе с вами. В СМС — имя и контакты гостя, с квизом — ещё и расчёт поездки', fixed:5000, h:2},
+    {id:'en', t:'Английская версия', d:'Не дословный перевод, а адаптация: тексты под запросы иностранцев, проверка смысла, настройка под англоязычный поиск', fixed:5000, h:2, from:true},
+  ]},
+];
+const PRESETS = {
+  min:['base','struct','p_fish','p_stay','p_price','p_photo','ywm','card','reviews'],
+  rec:['base','struct','p_fish','p_stay','p_price','p_photo','p_road','photo','map','ywm','card','seo','reviews'],
+  max:['base','struct','p_fish','p_stay','p_price','p_photo','p_road','p_aurora','photo','map','cal','ywm','card','seo','reviews','sms','en'],
+};
+const price = it => it.fixed ?? (it.page ? 1000 : roundUp(it.h * RES * RATE)); // простая доп. страница — 1 000 ₽ по доку
+const rub = n => n.toLocaleString('ru-RU') + ' ₽';
+const all = G.flatMap(g => g.items.map(it => ({...it, kind:g.kind})));
+const byId = Object.fromEntries(all.map(it => [it.id, it]));
+
+const main = document.getElementById('groups');
+for (const g of G){
+  const s = document.createElement('section'); s.className = 'group';
+  s.innerHTML = `<h2>${g.title}</h2>${g.hint ? `<p>${g.hint}</p>` : ''}`;
+  for (const it of g.items){
+    const l = document.createElement('label'); l.className = 'item' + (it.locked ? ' locked' : '');
+    l.innerHTML = `<input type="checkbox" id="${it.id}" ${it.locked ? 'checked disabled' : ''}>
+      <span><span class="t">${it.t}</span>${it.rec ? '<span class="tag rec">рекомендую</span>' : ''}${it.auto ? '<span class="tag">добавится сама</span>' : ''}<span class="d">${it.d}</span></span>
+      <span class="p">${it.from ? 'от ' : ''}${it.priceText ?? rub(price(it))}</span>`;
+    s.appendChild(l);
+  }
+  main.appendChild(s);
+}
+const box = id => document.getElementById(id);
+
+function recalc(){
+  const nPages = all.filter(it => it.page && box(it.id).checked).length;
+  box('struct').checked = nPages >= 2; box('struct').disabled = true;
+  const sum = {site:0, hook:0, extra:0}; let hours = 0;
+  for (const it of all){
+    if (!box(it.id).checked) continue;
+    sum[it.kind] += price(it); hours += it.h * RES;
+  }
+  const total = sum.site + sum.hook + sum.extra;
+  box('sSite').textContent = rub(sum.site);
+  box('sHook').textContent = rub(sum.hook);
+  box('sExtra').textContent = rub(sum.extra);
+  box('sTotal').textContent = rub(total);
+  // Окно Марии 15–25 ч в неделю (3–5 ч в день по вечерам и выходным) + неделя на ответы и проверку с вашей стороны
+  box('sTerm').textContent = '≈ 2 нед.*';
+  box('sHours').textContent = '≈ ' + hours.toFixed(1).replace('.', ',') + ' ч';
+  // Текст выбора для отправки в мессенджер: страница ничего не сохраняет, клиент отправляет список сам
+  const lines = all.filter(it => box(it.id).checked)
+    .map(it => `• ${it.t} — ${it.from ? 'от ' : ''}${it.priceText ?? rub(price(it))}`);
+  const msg = `VARZUGA SALMON LODGE: мой вариант сайта\n${lines.join('\n')}\nИтого: ${rub(total)}`;
+  box('sMsg').value = msg;
+  box('sCopied').hidden = true;
+  const chosen = all.filter(it => box(it.id).checked).map(it => it.id).sort().join();
+  document.querySelectorAll('.presets button').forEach(b =>
+    b.classList.toggle('on', PRESETS[b.dataset.preset].slice().sort().join() === chosen));
+}
+document.querySelectorAll('.presets button').forEach(b => b.addEventListener('click', () => {
+  for (const it of all) if (!it.locked) box(it.id).checked = PRESETS[b.dataset.preset].includes(it.id);
+  recalc();
+}));
+main.addEventListener('change', recalc);
+async function copyMsg(){
+  const ta = box('sMsg');
+  try { await navigator.clipboard.writeText(ta.value); box('sCopied').textContent = 'Текст скопирован.'; }
+  catch (e) { ta.focus(); ta.select(); box('sCopied').textContent = 'Текст выделен — нажмите Ctrl+C (на телефоне — «Копировать»).'; }
+  box('sCopied').hidden = false;
+}
+box('bCopy').addEventListener('click', copyMsg);
+// MAX не принимает готовый текст в ссылке: копируем текст и открываем чат с Марией
+box('bMax').addEventListener('click', copyMsg);
+// по умолчанию — рекомендуемый
+for (const it of all) if (!it.locked) box(it.id).checked = PRESETS.rec.includes(it.id);
+recalc();
+</script>
+
+</body>
+</html>
